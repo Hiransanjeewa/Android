@@ -9,14 +9,14 @@ class HelloMessageServiceTests {
     @Test
     fun it_should_return_an_error_if_name_is_empty(){
         val hellomessageService= HellomessageService()
-        var result=hellomessageService.showMessage("","23")
+        var result=hellomessageService.showMessage(" ","23")
         Assert.assertEquals("Name cannot be empty",result)
     }
 
     @Test
     fun it_should_return_an_error_if_age_is_empty(){
         val hellomessageService= HellomessageService()
-        var result=hellomessageService.showMessage("Hiran","")
+        var result=hellomessageService.showMessage("Hiran"," ")
         Assert.assertEquals("Age cannot be empty",result)
     }
 
