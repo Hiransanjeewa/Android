@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Android1Theme {
                 // A surface container using the 'background' color from the theme
-                //  Twogreetings()
+                  Twogreetings()
 
             }
         }
@@ -86,7 +86,10 @@ fun Twogreetings(){
             var name by remember { mutableStateOf(TextFieldValue(" ", TextRange(0,7))) }
             var age by remember { mutableStateOf(TextFieldValue(" ", TextRange(0,7))) }
 
-            var message=" "
+
+            var message by remember {
+               mutableStateOf(" ")
+         }
 
             val helloMessageService=HellomessageService()
             TextField(
@@ -99,7 +102,7 @@ fun Twogreetings(){
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 label = {Text("Age")}
             )
-
+            Text(text = message)
             Button(onClick = {
                 message=helloMessageService.showMessage(name.text,age.text)
                 Log.d("Hello Message",message)
@@ -107,7 +110,7 @@ fun Twogreetings(){
             ) {
                 Text(text = "Click here")
             }
-            Text(text = message)
+
         }
     }
 }
